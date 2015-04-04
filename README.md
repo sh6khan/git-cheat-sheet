@@ -112,6 +112,70 @@ to see all the other ways of viewing git logs you can checkout out the logs
 #Undoing things
 This is really the reason why we need git (for the cases where we make a mistake). But the problem there is many different ways to revert to an old commit based on the perticular situation that you are currently in. 
 
+I will be using the sha key of 184353d9 as the commit key that we want to return to
+
+##### Go back and checkout
+1. there are no changes taht have not been commited 
+2. you just want to go back to older commit, but you dont want to delete all your newer commits
+
+```
+$ git checkout 184353d9
+# or 
+$ git checkout -b new_branch_name 184353d9
+```
+
+##### Delete everything and just start restart from chosen commit
+1. there are no changes thave have not been commited
+2. You made a mistake and just need to go back to that commit, erasing everything you have done since then 
+
+```
+$ git reset --hard  184353d9
+```
+##### Start over from head or master
+1. you just made some changes to files for testing ( you do not want to commit )
+2. you have not commited yet
+
+```
+$ git reset --hard HEAD
+```
+remeber HEAD, is a pointer to the latest commit on that branch
+
+#Branches
+the Master branch is the branch that you start in, and its the branch that you should never work directly on. Anytime you want to make a change or add a feature, you should checkout a different branch. Once you have finished implementing said feature, you can then merge your branch into master. This is great in the case because it allows you to organize your features, say you have 30 commits regarding a feature that you no longer need. You dont want to have to revert back to an earlier commit on master, because that will undo other work. So if all the commits regarding that feature were on a seperate branch, you wouldnt have any problems
+
+Branches are a great way to start implementing new features. When you start making a new feature, you first run `git pull` on the master branch to make sure you have all the latest code.
+
+To create a new branch 
+```
+$ git checkout -b new_branch_name
+```
+branch names should be descriptive to what you are trying to do. They cannot have any spaces in the names and its most common to use either `-` or `_` to seperate the words
+
+```
+$ git checkout -b getting-live-messages-from-websocket
+```
+To see which branch you are currently in 
+
+```
+$ git status
+#or 
+$ git branch
+```
+To merge a branch once you are done. We will be merging the `getting-live-messages-from-websocket` branch _into_ master
+
+```
+$ git checkout master
+$ git merge getting-live-messages-from-websocket
+```
+#Merging and Merge Conflicts
+
+##### edit conflicts 
+the most common type of merge conflict, two people have made changes to the same file and are now tyring to merge
+
+
+
+
+
 
 
 
