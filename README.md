@@ -167,13 +167,83 @@ To merge a branch once you are done. We will be merging the `getting-live-messag
 $ git checkout master
 $ git merge getting-live-messages-from-websocket
 ```
-#Merging and Merge Conflicts
+#Merging 
 
-##### edit conflicts 
-the most common type of merge conflict, two people have made changes to the same file and are now tyring to merge
+* When merging, you are usually on the master branch and merge with your own branch
 
+##### Merge 
+```ruby
+$ git merge branch_name
+```
+* When rebasing, you are usually on the branch you are working on.
+* Rebase right before you decide merge with master
 
+##### Rebase 
+```
+$ git rebase master
+```
 
+#Merge Conflicts
+
+If you try and to do a merge, there is likey chance that you will end up with a merge conflict. Before we go over how to solve these problems, an important thing to learn is how to back out of the current predicement
+
+```
+$ git merge --abort
+# or 
+$ git reabse --abort
+```
+To see which files contain merge conflicts. Just run
+
+```
+$ git status
+```
+The important thing to remeber here is that you have final say as to how the merge conflict is handled. If a coworkers spent hours and days on a feature that conflicted with yours, You can simply over write all their hard work. (But lets try our best to be not be so selfish ;) )
+
+##### Edit Conflicts
+* Most common, two people have edited the same file. 
+
+```
+<<<<<<< HEAD
+def function_one
+=======
+def function_two
+>>>>>>> your_branch
+```
+`your_branch` is the name of the branch that you are merging, `HEAD` is the latest commit on the branch that you are merging with. Going back to our example, `HEAD` would be the _HEAD_ of the master branch
+
+then do 
+```
+$ git add .
+$ git commit -am "fixing merge conflicts"
+```
+* If you want to simple take the changes that are in `HEAD`
+
+```
+$ git checkout --theirs <file_name_that_has_merge_conflict>
+```
+
+##### Removed files conflict 
+* One person modified to the file, while another deleted the file
+
+you actuall have two choices here, delete the file , or keep the changes
+
+1. keeping the file with new changes
+
+Simply add the file back and commit. (lets say the README.md file was modified)
+
+```
+$ git add README.md 
+$ git commit 
+```
+
+2. deleting the file and disregarding the changes
+
+simply remove the file and commit 
+
+```
+$ git rm REAMDE.md 
+$ git commit
+```
 
 
 
