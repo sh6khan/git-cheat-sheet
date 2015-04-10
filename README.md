@@ -141,9 +141,17 @@ $ git reset --hard HEAD
 remeber HEAD, is a pointer to the latest commit on that branch
 
 #Branches
-the Master branch is the branch that you start in, and its the branch that you should never work directly on. Anytime you want to make a change or add a feature, you should checkout a different branch. Once you have finished implementing said feature, you can then merge your branch into master. This is great in the case because it allows you to organize your features, say you have 30 commits regarding a feature that you no longer need. You dont want to have to revert back to an earlier commit on master, because that will undo other work. So if all the commits regarding that feature were on a seperate branch, you wouldnt have any problems
+the Master branch is the branch that you start in and its the branch that you should never work directly on. Anytime you want to make a change or add a feature, you should checkout a different branch. Once you have finished implementing said feature you can then merge your branch into master. This is great because it allows you to organize your features and keep a controlled working version of the app to compare with.
 
 Branches are a great way to start implementing new features. When you start making a new feature, you first run `git pull` on the master branch to make sure you have all the latest code.
+
+- You should never be getting a merge error when doing a `git_pull`. If you find your self in this situation that means that you made a few commits on the master branch by accident. Stop the merge and make sure you're on a clean tree, then do this:
+
+	```
+	$ git checkout -b temp-changes
+	$ git reset --hard origin/master
+	```
+- all your changes that should not have been on master has no been moved to a seperate branch (temp-changes). the second line then looks at the remote directory and just sets your local master to the same one that is in origin (origin is the name of the remote branch).
 
 To create a new branch 
 ```
@@ -169,19 +177,22 @@ $ git merge getting-live-messages-from-websocket
 ```
 #Merging 
 
-* When merging, you are usually on the master branch and merge with your own branch
-
 ##### Merge 
-```ruby
+```
 $ git merge branch_name
 ```
+
+* When merging, you are usually on the master branch and merge with your own branch
+
+##### Rebase 
+
 * When rebasing, you are usually on the branch you are working on.
 * Rebase right before you decide merge with master
 
-##### Rebase 
 ```
 $ git rebase master
 ```
+_Why Rebase?_, It's a great to make a clean looking tree, it makes it appear as if you never created a branch to begin with. Remeber a rebas is simply shifting the commit that your branch branched off of to be the latest branch in master
 
 #Merge Conflicts
 
@@ -216,10 +227,17 @@ then do
 $ git add .
 $ git commit -am "fixing merge conflicts"
 ```
+
 * If you want to simple take the changes that are in `HEAD`
 
 ```
 $ git checkout --theirs <file_name_that_has_merge_conflict>
+```
+
+* If you want to keep your own changes
+
+```
+$ git checkout --yours <file_name_that_has_merge_conflict>
 ```
 
 ##### Removed files conflict 
@@ -244,6 +262,7 @@ simply remove the file and commit
 $ git rm REAMDE.md 
 $ git commit
 ```
+
 
 
 
