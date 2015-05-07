@@ -5,14 +5,14 @@ This is my personal git cheat sheet. This is not a deep dive into how git works,
 Feel free to add onto this little guide if you just happed to find the next big trick with GIT, I know myself and many others who are very confused about git could definetly use the help! :)
 
 #GIT and GITHUB
-Im am going to break this into two sections, one is GIT version control and the other is GITHUB. I find that the two are different enought that they each warrent seperate sections. for the first section we will simply be talking about all the ways that you can use GIT to version control your app, so that if you ever make a mistake everything will still be all good. The second section on GITHUB will be more on how to fork repos , and contribute to other repos. I will also be talking about the ways that you review other peoples code and how to make pull requests
+Im am going to break this into two sections, one is GIT version control and the other is GITHUB. I find that the two are different enough that they each warrent seperate sections. for the first section we will simply be talking about all the ways that you can use GIT to version control your app, so that if you ever make a mistake everything will still be all good. The second section on GITHUB will be more on how to fork repos , and contribute to other repos. I will also be talking about the ways that you review other peoples code and how to make pull requests
 
 #Starting
 Starting is super eazy... that is if you have a mac ! If you dont have a mac and are running Windows, then there is a very simple solution... Buy a mac !! (the new ones are like super thin)
 
 open up your terminal to see exactly what version you have of git with
 ```
-$git --version
+$ git --version
 git version 1.9.5 (Apple Git-50.3)
 ```
 now that you are sure you have a working version of git, its time to create your working repositiory
@@ -192,7 +192,7 @@ $ git merge branch_name
 ```
 $ git rebase master
 ```
-_Why Rebase?_, It's a great to make a clean looking tree, it makes it appear as if you never created a branch to begin with. Remeber a rebas is simply shifting the commit that your branch branched off of to be the latest branch in master
+_Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remeber a rebas is simply shifting the commit that your branch branched off of to be the latest branch in master
 
 #Merge Conflicts
 
@@ -263,9 +263,40 @@ $ git rm REAMDE.md
 $ git commit
 ```
 
+#Remotes
 
+We are nearing the section of GITHUB so it's time to introduce **Remotes**
 
+- When you use `git init` you just started git version control on that local dircectory (and child directory). But everything is maintained in your local machine. The concept of a remote is to start keeping version on github's reposititory
 
+- First you have to actually create the remote repositiory, which is very simple to do. Just go on Github.com and click the `New Repisitory` icon the nav bar
+
+- Github will give you all the needed instructions as to how we move our project into the remote repo 
+
+- By default the name of your repo and all remote repo's are set to **origin**. Note that you never have to change this if you dont want to (most preople dont) 
+
+##### Push
+
+- To push a new branch onto the remote repo
+
+	```
+	$ git push -u <remote\_repo_name> <branch_name>
+	```
+
+- Or to make things a little nicer 
+
+	```
+	$ git push -u origin HEAD
+	```
+- Even nicer, if you change the settings in your gitconfig
+
+	```
+	$ git push 
+	```
+- This will push the current branch that you are working on 
+
+The `-u` is short for `--set-upstream`, which just means that if you ever want to `pull` the remote branch, you simply have to type 
+`git pull` while you are currrently checked out in the local branch
 
 
 
