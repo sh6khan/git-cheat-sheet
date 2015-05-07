@@ -5,12 +5,12 @@ This is my personal git cheat sheet. This is not a deep dive into how git works,
 Feel free to add onto this little guide if you just happed to find the next big trick with GIT, I know myself and many others who are very confused about git could definetly use the help! :)
 
 #GIT and GITHUB
-Im am going to break this into two sections, one is GIT version control and the other is GITHUB. I find that the two are different enough that they each warrent seperate sections. for the first section we will simply be talking about all the ways that you can use GIT to version control your app, so that if you ever make a mistake everything will still be all good. The second section on GITHUB will be more on how to fork repos , and contribute to other repos. I will also be talking about the ways that you review other peoples code and how to make pull requests
+Im am going to break this into two sections, one is GIT version control and the other is GITHUB. I find that the two are different enough that they each warrent seperate sections. for the first section we will simply be talking about all the ways that you can use GIT to version control your app, so that if you ever make a mistake everything will be okay. The second section on GITHUB will be more on how to fork repos, and contribute to other repos. I will also be talking about the ways that you review other peoples code and how to make pull requests
 
 #Starting
 Starting is super eazy... that is if you have a mac ! If you dont have a mac and are running Windows, then there is a very simple solution... Buy a mac !! (the new ones are like super thin)
 
-open up your terminal to see exactly what version you have of git with
+open up your terminal to see exactly what version you have of git
 ```
 $ git --version
 git version 1.9.5 (Apple Git-50.3)
@@ -22,16 +22,16 @@ go inside your project directory (in the terminal) and run `git init`, this will
 $ cd my_project
 $ git init 
 ```
-to verify run `ls -al` and you should see `.git` file, that is how you know you have git for this directory. If you no longer want to use git on thid dir, then simple delete the .git file
+to verify, run `ls -al` and you should see `.git` file, that is how you know you have git for this directory. If you no longer want to use git on this dir, then simply delete the `.git` file.
 
 #GIT Structure
 GIT breaks things up into three 'trees' which are all maintained by git,
 
 **Working Directory** : This is your current **local**(you'll be seeing that world alot) tree. All the changes you make here will not affect anyone else 
 
-**Staging** : or sometimes other wise known as _index_ is as the name indicates a staging tree. This is for keeping track of all the files that you changed
+**Staging** : or sometimes known as _index_ is - as the name implies - a staging tree. This is for keeping track of all the files that you changed
 
-**HEAD** : this to me is a checko point, like in a video game. A place that if in the future you make  mistake, you can revert/reset back to this current position. the **HEAD** always points to the most recent _commit_ but can point to earlier ones if you want 
+**HEAD** : this to me is a check point, like in a video game. A place that if in the future you make a mistake, you can revert/reset back to this current position. The **HEAD** always points to the most recent _commit_ but can point to earlier ones if you want. 
 
 To move from one tree to another is simple
 ```
@@ -49,7 +49,7 @@ There is a caviat to  using the last method there, If you created a brand new fi
 `git add <filename>`
 
 #GIT logs
-the `git log` command is a great way to see all the commits that you have made, however it can be a little confusing and overwhelmging
+the `git log` command is a great way to see all the commits that you have made, however it can be a little confusing and overwhelming
 ```
 $ git log
 
@@ -72,7 +72,7 @@ Date:   Fri Apr 3 03:12:54 2015 -0400
 
     Merge branch 'master' into random-branch
 ```
-the large random assoirmand of numbers and letters right next to the word commit is the sha_key, it's a specific has value that refrences that perticular commit 
+the large random assoirmant of numbers and letters right next to the word commit is the sha_key, it's a specific has value that refrences that perticular commit 
 
 author is simple, its the user that made the commit
 
