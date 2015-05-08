@@ -192,7 +192,7 @@ $ git merge branch_name
 ```
 $ git rebase master
 ```
-_Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remeber a rebas is simply shifting the commit that your branch branched off of to be the latest branch in master
+_Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remeber a rebase is simply shifting the commit that your branch branched off of, to be the HEAD of master
 
 #Merge Conflicts
 
@@ -263,6 +263,13 @@ $ git rm REAMDE.md
 $ git commit
 ```
 
+If you had a confict in the middle of a rebase, after fixing your conflicts run:
+
+```
+git add .
+git rebase --continue
+```
+
 #Remotes
 
 We are nearing the section of GITHUB so it's time to introduce **Remotes**
@@ -297,6 +304,36 @@ We are nearing the section of GITHUB so it's time to introduce **Remotes**
 
 The `-u` is short for `--set-upstream`, which just means that if you ever want to `pull` the remote branch, you simply have to type 
 `git pull` while you are currrently checked out in the local branch
+
+
+#GitHub
+
+Github is a website that anyone can access and a great way to work on projects with other people. You can also use Github to contriubte to open source, a great way to help everyone!
+
+#####Creating a Git Repo
+
+- Go to the top right of the page and click on the create new button. Then pick `New repository`. 
+- pick the name of the repo, the name should be the name fo the project that you are working on. For example the name of this repo is
+**git-cheat-sheet**
+
+- You want initialize with a README.md file. The README.md is a file that you want other people to read before looking at your project
+For example, what you are reading right now is a README.md file. If you want to learn about mark down, which is how you can make cool things on your docs go here: https://help.github.com/articles/github-flavored-markdown/
+
+- And thats all! You have just created your remote repository. If you have an existing projects, you can import that project to this repo. If this is just the begnning, you can clone the remote repo to your local machine. 
+
+##### Git Clone
+
+- If you look on the right side of home page in a git repo, you will see this _git clone_ clink. Copy that link to your clipboard, either with just `cmd + v` or just clicking on the clipboard icon. Then go to the directory where you want to add the project and run 
+
+```
+$ git clone <clone_link>
+
+# example
+
+$ git clone https://github.com/sh6khan/git-cheat-sheet.git
+```
+
+
 
 
 
