@@ -4,7 +4,7 @@ This is my personal git cheat sheet. This is not a deep dive into how git works,
 #Contribute
 Feel free to add onto this little guide if you just happened to find the next big trick with GIT, I know myself and many others who are very confused about git could definitely use the help! :)
 
-#GIT and GITHUB
+#Git and GitHub
 Im am going to break this into two sections, one is Git version control and the other is GitHub. I find that the two are different enough that they each warrant separate sections. for the first section we will simply be talking about all the ways that you can use Git to version control your app, so that if you ever make a mistake everything will be okay. The second section on GitHub will be more on how to fork repos, and contribute to other repos. I will also be talking about the ways that you review other peoples code and how to make pull requests
 
 #Starting
@@ -48,7 +48,7 @@ git commit -am "commit message"
 There is a caveat to  using the last method there, If you created a brand new file, you have to first add it to _Staging_ with 
 `git add <filename>`
 
-#GIT logs
+#Git logs
 the `git log` command is a great way to see all the commits that you have made, however it can be a little confusing and overwhelming
 ```
 $ git log
@@ -139,6 +139,21 @@ $ git reset --hard  184353d9
 $ git reset --hard HEAD
 ```
 remember HEAD is a pointer to the latest commit on that branch
+
+##### Ctrl + z
+
+1. You have no idea what you did, no idea where you are and you just want to go back
+
+- The reflog is the ultimate safety net. It keeps track of everything you just did, from checking out new branches, to rebases, the reflog is the essentialy a way to move back through time 
+
+
+	```
+	$ git reflog
+
+	# after finding the place you want to go back to 
+
+	$ git reset --hard <sha_key>
+	```
 
 #Branches
 the Master branch is the branch that you start in and its the branch that you should never work directly on. Anytime you want to make a change or add a feature, you should checkout a different branch. Once you have finished implementing said feature you can then merge your branch into master. This is great because it allows you to organize your features and keep a controlled working version of the app to compare with.
