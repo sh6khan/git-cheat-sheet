@@ -2,12 +2,22 @@
 This is my personal git cheat sheet. This is not a deep dive into how git works, just some of the simple stuff
 
 #Contribute
-Feel free to add onto this little guide if you just happened to find the next big trick with GIT, I know myself and many others who are very confused about git could definitely use the help! :)
+Feel free to add or fix anything that you see.
 
-#Git and GitHub
-Im am going to break this into two sections, one is Git version control and the other is GitHub. I find that the two are different enough that they each warrant separate sections. for the first section we will simply be talking about all the ways that you can use Git to version control your app, so that if you ever make a mistake everything will be okay. The second section on GitHub will be more on how to fork repos, and contribute to other repos. I will also be talking about the ways that you review other peoples code and how to make pull requests
+#Overview
+1. [Starting](#starting)
+1. [Git Structure](#git-structure)
+1. [Git Logs](#git-logs)
+1. [Undo](#undo)
+1. [Branches](#branches)
+1. [Merging](#merging)
+1. [Remotes](#remotes)
 
-#Starting
+1. [GitHub](#github)
+1. [Creating a Git Repo](#creating-a-git-repo)
+1. [Git Clone](#git-clone)
+
+## Starting
 Starting is super easy... that is if you have a mac ! If you don't have a mac and are running Windows, then there is a very simple solution... Buy a mac !! (the new ones are like super thin)
 
 open up your terminal to see exactly what version you have of git
@@ -24,14 +34,14 @@ $ git init
 ```
 to verify, run `ls -al` and you should see `.git` file, that is how you know you have git for this directory. If you no longer want to use git on this dir, then simply delete the `.git` file.
 
-#GIT Structure
-GIT breaks things up into three 'trees' which are all maintained by git,
+## Git Structure
+Git breaks things up into three 'trees' which are all maintained by git,
 
-**Working Directory** : This is your current **local**(you'll be seeing that world alot) tree. All the changes you make here will not affect anyone else 
+**Working Directory** : This is your current **local** tree. All the changes you make here will not affect anyone else 
 
 **Staging** : or sometimes known as _index_ is - as the name implies - a staging tree. This is for keeping track of all the files that you changed
 
-**HEAD** : this to me is a check point, like in a video game. A place that if in the future you make a mistake, you can revert/reset back to this current position. The **HEAD** always points to the most recent _commit_ but can point to earlier ones if you want. 
+**HEAD** : A place that if in the future you make a mistake, you can revert/reset back to this current position. The **HEAD** always points to the most recent _commit_ but can point to earlier ones if you want. 
 
 To move from one tree to another is simple
 ```
@@ -48,7 +58,7 @@ git commit -am "commit message"
 There is a caveat to  using the last method there, If you created a brand new file, you have to first add it to _Staging_ with 
 `git add <filename>`
 
-#Git logs
+## Git logs
 the `git log` command is a great way to see all the commits that you have made, however it can be a little confusing and overwhelming
 ```
 $ git log
@@ -74,11 +84,11 @@ Date:   Fri Apr 3 03:12:54 2015 -0400
 ```
 the large random assortment of numbers and letters right next to the word commit is the sha_key, it's a specific has value that references that particular commit 
 
-author is simple, its the user that made the commit
+- author is simple, its the user that made the commit
 
-date also very simple, the date of the commit 
+- date also very simple, the date of the commit 
 
-and finally the commit message. The commit message helps you understand what work you did with in that commit so make sure to make them as verbose as you can, especially if you are working with a team. 
+- and finally the commit message. The commit message helps you understand what work you did with in that commit so make sure to make them as verbose as you can, especially if you are working with a team. 
 
 There is one more thing that I should point out here. if the git log is large enough, git will open it in `vim`, an editor for the terminal. To exit the git log, simply press `q` after the `:`. so you will see this at the bottom of the page `:q`
 
@@ -94,7 +104,7 @@ b2dba6730bee6badff97b992c301579559f4b039 conflict feature 2 on master
 9a99e3439256e70a6f6b0910597fbd2981bde9e5 added a conflict feature
 f4a40bfd12a0e79bce3ae10292bd2bc5f6f1c4d9 fourth feature was added
 ```
-To see all the commits made by one author. I will be using my person `sh6khan` author name
+To see all the commits made by one author. I will be using my `sh6khan` author name
 ```
 $ git log --author=sh6khan
 ```
@@ -109,7 +119,7 @@ git log --graph
 to see all the other ways of viewing git logs you can checkout out the logs
 
 
-#Undoing things
+## Undo
 This is really the reason why we need git (for the cases where we make a mistake). But the problem there is many different ways to revert to an old commit based on the particular situation that you are currently in. 
 
 I will be using the sha_key of 184353d9 as the commit key that we want to return to
@@ -140,22 +150,22 @@ $ git reset --hard HEAD
 ```
 remember HEAD is a pointer to the latest commit on that branch
 
-##### Ctrl + z
+##### Ctrl + Z
 
 1. You have no idea what you did, no idea where you are and you just want to go back
 
 - The reflog is the ultimate safety net. It keeps track of everything you just did, from checking out new branches, to rebases, the reflog is the essentialy a way to move back through time 
 
 
-	```
-	$ git reflog
+```
+$ git reflog
 
-	# after finding the place you want to go back to 
+# after finding the place you want to go back to 
 
-	$ git reset --hard <sha_key>
-	```
+$ git reset --hard <sha_key>
+```
 
-#Branches
+## Branches
 the Master branch is the branch that you start in and its the branch that you should never work directly on. Anytime you want to make a change or add a feature, you should checkout a different branch. Once you have finished implementing said feature you can then merge your branch into master. This is great because it allows you to organize your features and keep a controlled working version of the app to compare with.
 
 Branches are a great way to start implementing new features. When you start making a new feature, you first run `git pull` on the master branch to make sure you have all the latest code.
@@ -190,7 +200,7 @@ To merge a branch once you are done. We will be merging the `getting-live-messag
 $ git checkout master
 $ git merge getting-live-messages-from-websocket
 ```
-#Merging 
+## Merging 
 
 ##### Merge 
 ```
@@ -285,7 +295,7 @@ git add .
 git rebase --continue
 ```
 
-#Remotes
+## Remotes
 
 We are nearing the section of GITHUB so it's time to introduce **Remotes**
 
@@ -321,11 +331,11 @@ The `-u` is short for `--set-upstream`, which just means that if you ever want t
 `git pull` while you are currently checked out in the local branch
 
 
-#GitHub
+# GitHub
 
 Github is a website that anyone can access and a great way to work on projects with other people. You can also use Github to contribute to open source, a great way to help everyone!
 
-#####Creating a Git Repo
+## Creating a Git Repo
 
 - Go to the top right of the page and click on the create new button. Then pick `New repository`. 
 - pick the name of the repo, the name should be the name fo the project that you are working on. For example the name of this repo is
@@ -336,7 +346,7 @@ For example, what you are reading right now is a README.md file. If you want to 
 
 - And thats all! You have just created your remote repository. If you have an existing projects, you can import that project to this repo. If this is just the beginning, you can clone the remote repo to your local machine. 
 
-##### Git Clone
+## Git Clone
 
 - If you look on the right side of home page in a git repo, you will see this _git clone_ clink. Copy that link to your clipboard, either with just `cmd + v` or just clicking on the clipboard icon. Then go to the directory where you want to add the project and run 
 
