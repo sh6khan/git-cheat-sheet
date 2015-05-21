@@ -1,10 +1,19 @@
 # git-cheat-sheet
 This is my personal git cheat sheet. This is not a deep dive into how git works, just some of the simple stuff
 
-#Contribute
-Feel free to add or fix anything that you see.
+# Contribute
+Feel free to add or fix anything that you see. To contribute
 
-#Overview
+- Fork the repo
+- Clone the new forked repo into your local machine
+- Create a new branch `git checkout -b your_contribution`
+- After making your changes, `git commit -am 'small message about what you did'`
+- Then push up into the remote repo with `git push origin HEAD`
+- Go to GitHub, go to your forked repo and you should see a yellow bar mentioning your branch
+- Go inside, scroll to the bottom and press on the `Make Pull Request` button
+- I will get an email, notifying me of your Pull Request (PR) and if its good, I will merge it
+
+# Overview
 1. [Starting](#starting)
 1. [Git Structure](#git-structure)
 1. [Git Logs](#git-logs)
@@ -12,7 +21,6 @@ Feel free to add or fix anything that you see.
 1. [Branches](#branches)
 1. [Merging](#merging)
 1. [Remotes](#remotes)
-
 1. [GitHub](#github)
 1. [Creating a Git Repo](#creating-a-git-repo)
 1. [Git Clone](#git-clone)
@@ -331,7 +339,7 @@ The `-u` is short for `--set-upstream`, which just means that if you ever want t
 `git pull` while you are currently checked out in the local branch
 
 
-# GitHub
+## GitHub
 
 Github is a website that anyone can access and a great way to work on projects with other people. You can also use Github to contribute to open source, a great way to help everyone!
 
