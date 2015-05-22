@@ -2,6 +2,7 @@
 This is my personal git cheat sheet. This is not a deep dive into how git works, just some of the simple stuff.
 
 # Contribute
+
 Feel free to add to the repo or fix any mistakes you see.  Get started by
 
 - Forking the repo.
@@ -14,6 +15,7 @@ Feel free to add to the repo or fix any mistakes you see.  Get started by
 - I will get an email, notifying me of your Pull Request (PR) and if it's good, I will merge it.
 
 # Overview
+
 1. [Starting](#starting)
 1. [Git Structure](#git-structure)
 1. [Git Logs](#git-logs)
@@ -26,6 +28,7 @@ Feel free to add to the repo or fix any mistakes you see.  Get started by
 1. [Git Clone](#git-clone)
 
 ## Starting
+
 Starting is super easy... that is if you have a mac! If you don't have a mac and are running Windows, then there is a very simple solution... Buy a mac!! (the new ones are like super thin)
 
 open up your terminal to see exactly what version you have of git
@@ -42,7 +45,10 @@ $ git init
 ```
 to verify, run `ls -al` and you should see `.git` file, that is how you know you have git for this directory. If you no longer want to use git for this directory then simply delete the `.git` file.
 
+**[⬆ back to top](#overview)**
+
 ## Git Structure
+
 Git breaks things up into three 'trees' which are all maintained by git.
 
 **Working Directory** : This is your current **local** tree. This just holds what's in your repository. 
@@ -71,7 +77,10 @@ We personally recommend going through this workflow:
 `git add -A` - add all changes to the repo
 `git commit -m "commit message"` - creates a new commit with all the changes you made
 
+**[⬆ back to top](#overview)**
+
 ## Git logs
+
 the `git log` command is a great way to see all the previous commits made to the repository (whether by you or someone else), however the default formatting can be a bit confusing and even overwhelming at first look.
 ```
 $ git log
@@ -131,8 +140,10 @@ git log --graph
 ```
 To see all the other ways of viewing git logs, can checkout out the [documentation](http://git-scm.com/docs/git-log)
 
+**[⬆ back to top](#overview)**
 
 ## Undo
+
 One of the most compelling reasons to use Git is that you can roll back to a previous snapshot (commit) of the repository, in case you've made a mistake.
 However, reverting back to a specific commit can be really confusing if you've never done it before. Git gives you several ways to do it, and depending on the situation, one way is easier than another.
 
@@ -145,7 +156,9 @@ I will be using the sha_key of 184353d9 (you usually only need the first 6-7 dig
 
 ```
 $ git checkout 184353d9
+
 # Or 
+
 $ git checkout -b new_branch_name 184353d9
 ```
 
@@ -179,8 +192,10 @@ $ git reflog
 
 $ git reset --hard <sha_key>
 ```
+**[⬆ back to top](#overview)**
 
 ## Branches
+
 the Master branch is the branch that you start in and its the branch that you should never work directly on. Anytime you want to make changes to the project, you should checkout a different branch. Once you have finished implementing said feature you can then merge your branch into master. This is great because it allows you to organize your features and keep a controlled working version of the app to compare with.
 
 Branches are a great way to start implementing new features. When you start making a new feature, you first run `git pull` on the master branch to make sure you have all the latest code.
@@ -206,7 +221,9 @@ To see which branch you are currently in
 
 ```
 $ git status
-#or 
+
+# Or 
+
 $ git branch
 ```
 To merge a branch once you are done. We will be merging the `getting-live-messages-from-websocket` branch _into_ master
@@ -215,6 +232,8 @@ To merge a branch once you are done. We will be merging the `getting-live-messag
 $ git checkout master
 $ git merge getting-live-messages-from-websocket
 ```
+**[⬆ back to top](#overview)**
+
 ## Merging 
 
 ##### Merge 
@@ -239,7 +258,9 @@ $ git rebase master
 ```
 _Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remember a rebase is simply shifting the commit that your branch branched off of, to be the HEAD of master
 
-##Merge Conflicts
+**[⬆ back to top](#overview)**
+
+## Merge Conflicts
 
 If you try and perform a merge, there is a chance that you will end up with a merge conflict. Before we go over how to solve these problems, an important thing to learn is how to back out of the current predicament
 
@@ -316,6 +337,7 @@ If you had a conflict in the middle of a rebase, after fixing your conflicts run
 git add .
 git rebase --continue
 ```
+**[⬆ back to top](#overview)**
 
 ## Remotes
 
@@ -352,6 +374,7 @@ We are nearing the section of GITHUB so it's time to introduce **Remotes**
 The `-u` is short for `--set-upstream`, which just means that if you ever want to `pull` the remote branch, you simply have to type 
 `git pull` while you are currently checked out in the local branch
 
+**[⬆ back to top](#overview)**
 
 ## GitHub
 
