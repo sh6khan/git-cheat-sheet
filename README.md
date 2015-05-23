@@ -7,12 +7,29 @@ Feel free to add to the repo or fix any mistakes you see.  Get started by
 
 - Forking the repo.
 - Clone your forked repo into your local machine.
-- Create a new branch `git checkout -b your_contribution`.
+- Create a new branch `git checkout -b your-contribution`.
 - After making your changes, `git commit -am 'small message about what you did'`.
 - Then push up into the remote repo with `git push origin HEAD`.
 - Go to GitHub, go to your forked repo and you should see a yellow bar mentioning your branch.
 - After hitting that button and reviewing your changes, hit the `Make Pull Request` button near the bottom.
 - I will get an email, notifying me of your Pull Request (PR) and if it's good, I will merge it.
+
+To keep your fork up to date
+
+- add a remote upstream repository with 
+
+  `$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git` (the original HTTPS clone Url)
+
+- see all your remotes with `git remote -v`
+  ```
+  origin  https://github.com/sh6khan/rails.git (fetch)
+  origin  https://github.com/sh6khan/rails.git (push)
+  upstream  https://github.com/rails/rails.git (fetch)
+  upstream  https://github.com/rails/rails.git (push) 
+  ```
+  - now you have a remote called **upstream** which is the original repo
+
+- Then run `git pull upstream master`, to see your merged contribution on your local machine
 
 # Overview
 
