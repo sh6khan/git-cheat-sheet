@@ -31,19 +31,19 @@ Feel free to add to the repo or fix any mistakes you see.  Get started by
 
 Starting is super easy... that is if you have a mac! If you don't have a mac and are running Windows, then there is a very simple solution... Buy a mac!! (the new ones are like super thin)
 
-open up your terminal to see exactly what version you have of git
+Open up your terminal to see exactly what version of git you have.
 ```
 $ git --version
 git version 1.9.5 (Apple Git-50.3)
 ```
-now that you are sure you have a working version of git, its time to create your working repository
+Now that you are sure you have a working version of git, it's time to create your working repository.
 
-go inside your project directory (in the terminal) and run `git init`, this will let git know you want it to start keeping track of your changes for this folder
+Go inside your project directory (in the terminal) and run `git init`, this will let git know you want it to start keeping track of your changes for this folder.
 ```
 $ cd my_project
 $ git init 
 ```
-to verify, run `ls -al` and you should see `.git` file, that is how you know you have git for this directory. If you no longer want to use git for this directory then simply delete the `.git` file.
+To verify, run `ls -al` and you should see the `.git` file, that is how you know you have git for this directory. If you no longer want to use git for this directory then simply delete the `.git` file.
 
 **[⬆ back to top](#overview)**
 
@@ -61,27 +61,27 @@ Moving from one tree to another is simple.
 ```
 #You must first move files that you have changed to the staging area.
 #To specify a single file,
-git add <filename>
+$ git add <filename>
 
 #Alternatively, you can add all files that you have updated, added, or remove by entering,
-git add -A
+$ git add -A
 
-#This will put all the changes you've staged into a new commit.  HEAD will now point to this newest commit.
-git commit -m "commit message"
+#This will put all the changes you've staged into a new commit. HEAD will now point to this newest commit.
+$ git commit -m "commit message"
 
 #you can do this all in online with
-git commit -am "commit message"
+$ git commit -am "commit message"
 ```
 There is a caveat to using the last method there, it will not pick up on brand new files or files that have been deleted since the last commit.
 We personally recommend going through this workflow:
-`git add -A` - add all changes to the repo
-`git commit -m "commit message"` - creates a new commit with all the changes you made
+`git add -A` - add all changes to the repo.
+`git commit -m "commit message"` - creates a new commit with all the changes you made.
 
 **[⬆ back to top](#overview)**
 
 ## Git logs
 
-the `git log` command is a great way to see all the previous commits made to the repository (whether by you or someone else), however the default formatting can be a bit confusing and even overwhelming at first look.
+The `git log` command is a great way to see all the previous commits made to the repository (whether by you or someone else), however the default formatting can be a bit confusing and even overwhelming at first look.
 ```
 $ git log
 
@@ -104,17 +104,17 @@ Date:   Fri Apr 3 03:12:54 2015 -0400
 
     Merge branch 'master' into random-branch
 ```
-the large random assortment of numbers and letters right next to the word commit is the sha_key, it's a specific has value that references that particular commit 
+The large assortment of numbers and letters right next to the word commit is the sha_key, it's a specific hexadecimal value that references that particular commit.
 
-- author is simple, it's the user that made the commit
+- The author line is simple, it's the user that made the commit
 
-- date is also pretty simple, 
+- The date line is self-explanatory
 
-- and finally the commit message. The commit message helps you understand what work you did with in that commit so make sure to make them as verbose as you can, especially if you are working with a team. 
+- and finally the commit message. The commit message helps you understand what work you did within that commit so make sure to make them as verbose as you can, especially if you are working with a team. 
 
-There is one more thing that I should point out here. if the git log is large enough, git will open it in `vim`, an editor for the terminal. To exit the git log, simply press `esc`, then `:`, then `q` and hit enter.
+There is one more thing that I should point out here. If the git log is large enough, git will open it in `vim`, an editor for the terminal. To exit the git log, simply press `esc`, then `:`, then `q` and hit enter.
 
-But if you want cleaner more readable information, definitely try the following 
+But if you want cleaner more readable information, definitely try the following:
 ```
 $ git log oneline -5
 
@@ -124,21 +124,21 @@ aa87d8a branch conflict feature
 1bde9e5 added a conflict feature
 6f1c4d9 fourth feature was added
 ```
-where `-5` is an option that lets you specify the number of most recent commits you want to see.  (You can use this options together with the other ones listed below).
+where `-5` is an option that lets you specify the number of most recent commits you want to see.  (You can use these options together with the other ones listed below).
 
 To see all the commits made by one author,
 ```
 $ git log --author=sh6khan
 ```
-To see all your merges (We will talk about what a merge is later),
+To see all your merges (we will talk about what a merge is later),
 ```
 $ git log --merges
 ```
 To see the repo history in a visual branching format,
 ```
-git log --graph
+$ git log --graph
 ```
-To see all the other ways of viewing git logs, can checkout out the [documentation](http://git-scm.com/docs/git-log)
+To see all the other ways of viewing git logs, you can check out the [documentation](http://git-scm.com/docs/git-log).
 
 **[⬆ back to top](#overview)**
 
@@ -148,7 +148,7 @@ One of the most compelling reasons to use Git is that you can roll back to a pre
 However, reverting back to a specific commit can be really confusing if you've never done it before. Git gives you several ways to do it, and depending on the situation, one way is easier than another.
 
 First, you'll want to identify which commit you want to roll back to.  enter `git log --oneline` and select the first 5-6 digits of the sha_key for the commit you want to return to.
-I will be using the sha_key of 184353d9 (you usually only need the first 6-7 digits of your commit).  as the commit key that we want to return to
+I will be using the sha_key of 184353d9 (you usually only need the first 6-7 digits of your commit).  as the commit key that we want to return to.
 
 ##### Go back and checkout
 1. There are no changes that have not been committed.
@@ -163,7 +163,7 @@ $ git checkout -b new_branch_name 184353d9
 ```
 
 ##### Delete everything and just start restart from chosen commit
-1. There are no changes thay have not been committed.
+1. There are no changes that have not been committed.
 2. You made a mistake and just need to go back to that commit, erasing everything you have done since then.
 
 ```
@@ -176,7 +176,7 @@ $ git reset --hard  184353d9
 ```
 $ git reset --hard HEAD
 ```
-remember HEAD is (almost always) a pointer to the latest commit on that branch
+Remember that HEAD is (almost always) a pointer to the latest commit on that branch.
 
 ##### Ctrl + Z
 
@@ -196,7 +196,7 @@ $ git reset --hard <sha_key>
 
 ## Branches
 
-the Master branch is the branch that you start in and its the branch that you should never work directly on. Anytime you want to make changes to the project, you should checkout a different branch. Once you have finished implementing said feature you can then merge your branch into master. This is great because it allows you to organize your features and keep a controlled working version of the app to compare with.
+The Master branch is the branch that you start in and it's the branch that you should never work directly on. Anytime you want to make changes to the project, you should checkout a different branch. Once you have finished implementing said feature you can then merge your branch into master. This is great because it allows you to organize your features and keep a controlled working version of the app to compare with.
 
 Branches are a great way to start implementing new features. When you start making a new feature, you first run `git pull` on the master branch to make sure you have all the latest code.
 
@@ -206,18 +206,18 @@ Branches are a great way to start implementing new features. When you start maki
   $ git checkout -b temp-changes
   $ git reset --hard origin/master
   ```
-- all your changes that should not have been on master have been been moved to a separate branch (temp-changes). the second line then looks at the remote directory and just sets your local version of the master branch to the same one that is on origin (origin is the name of the remote branch, usually hosted on Github).
+- All your changes that should not have been on master have been moved to a separate branch (temp-changes). The second line then looks at the remote directory and just sets your local version of the master branch to the same one that is on origin (origin is the name of the remote branch, usually hosted on GitHub).
 
-To create a new branch 
+To create a new branch:
 ```
 $ git checkout -b new_branch_name
 ```
-branch names should be descriptive to what you are trying to do. They cannot have any spaces in the names and its most common to use either `-` or `_` to separate the words
+Branch names should be descriptive to what you are trying to do. Their names cannot contain any spaces and its most common to use either `-` or `_` to separate the words
 
 ```
 $ git checkout -b getting-live-messages-from-websocket
 ```
-To see which branch you are currently in 
+To see which branch you are currently in:
 
 ```
 $ git status
@@ -256,7 +256,7 @@ $ git merge add-tests-for-app-version --no-ff --no-edit
 ```
 $ git rebase master
 ```
-_Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remember a rebase is simply shifting the commit that your branch branched off of, to be the HEAD of master
+_Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remember a rebase is simply shifting the commit that your branch branched off of, to be the HEAD of master.
 
 **[⬆ back to top](#overview)**
 
@@ -269,17 +269,17 @@ $ git merge --abort
 # or 
 $ git rebase --abort
 ```
-To see which files contain merge conflicts (assuming you haven't backed out yet). Just run
+To see which files contain merge conflicts (assuming you haven't backed out yet). Just run:
 
 ```
 $ git status
 ```
-The important thing to remember here is that you have final say as to how the merge conflict is handled. If a coworkers spent hours and days on a feature that conflicted with yours, You can simply over write all their hard work. (But let's try our best to be not be so selfish ;) )
+The important thing to remember here is that you have final say as to how the merge conflict is handled. If a co-worker spent hours and days on a feature that conflicted with yours, You can simply overwrite all their hard work. ( But let's try our best not to be so selfish ;) ).
 
 ##### Edit Conflicts
 * Happens when two users edit the same lines of a file.
 
-After opening op the file with the conflict you should see
+After opening up the file with the conflict you should see
 
 ```
 <<<<<<< HEAD
@@ -309,22 +309,22 @@ $ git checkout --yours <file_name_that_has_merge_conflict>
 ```
 
 ##### Removed files conflict 
-* One person modified to the file, while another deleted the file
+* One person modified the file, while another deleted the file
 
 you actually have two choices here, delete the file, or keep the changes
 
-1. keeping the file with new changes
+1. Keeping the file with new changes
 
-Simply add the file back and commit. (lets say the README.md file was modified)
+    Simply add the file back and commit. (let's say the README.md file was modified)
 
-```
-$ git add README.md 
-$ git commit 
-```
+    ```
+    $ git add README.md 
+    $ git commit 
+    ```
 
 2. deleting the file and disregarding the changes
 
-simply remove the file and commit 
+Simply remove the file and commit:
 
 ```
 $ git rm REAMDE.md 
@@ -334,22 +334,22 @@ $ git commit
 If you had a conflict in the middle of a rebase, after fixing your conflicts run:
 
 ```
-git add .
-git rebase --continue
+$ git add .
+$ git rebase --continue
 ```
 **[⬆ back to top](#overview)**
 
 ## Remotes
 
-We are nearing the section of GITHUB so it's time to introduce **Remotes**
+We are nearing the GitHub section so it's time to introduce **Remotes**
 
 - When you use `git init` you just started git version control on that local directory (and child directory). But everything is maintained in your local machine. The concept of a remote is to start keeping a central version of the repository online, usually on a service like Github.
 
-- First you have to actually create the remote repository, which is very simple to do. Just go on Github.com and click the `New Repository` icon the nav bar
+- First you have to actually create the remote repository, which is very simple to do. Just go on github.com and click the `New Repository` icon the nav bar
 
 - Github will give you all the needed instructions as to how we move our project into the remote repo 
 
-- By default the name of your repo and all remote repo's are set to **origin**. Note that you never have to change this if you don't want to (most preople don't) 
+- By default the name of your repo and all remote repos are set to **origin**. Note that you never have to change this if you don't want to (most people don't) 
 
 ##### Push
 
@@ -364,7 +364,7 @@ We are nearing the section of GITHUB so it's time to introduce **Remotes**
   ```
   $ git push -u origin HEAD
   ```
-- After that, you can usually just use `git push` to push to the matching branch on remote (Thought you may to have tell git you want `git push` to push only to the matching branch on the remote `git config --global push.default simple`, more on this [here](http://stackoverflow.com/a/948397/3194316))
+- After that, you can usually just use `git push` to push to the matching branch on remote (though you may to have tell git you want `git push` to only push to the matching branch on the remote `git config --global push.default simple`, more on this [here](http://stackoverflow.com/a/948397/3194316))
 
   ```
   $ git push 
@@ -372,7 +372,7 @@ We are nearing the section of GITHUB so it's time to introduce **Remotes**
 - This will push the current branch that you are working on 
 
 The `-u` is short for `--set-upstream`, which just means that if you ever want to `pull` the remote branch, you simply have to type 
-`git pull` while you are currently checked out in the local branch
+`git pull` while you are currently checked out in the local branch.
 
 **[⬆ back to top](#overview)**
 
@@ -383,17 +383,18 @@ Github is a website that anyone can access and a great way to work on projects w
 ## Creating a Git Repo
 
 - Go to the top right of the page and click on the create new button. Then pick `New repository`. 
-- pick the name of the repo, the name should be the name fo the project that you are working on. For example the name of this repo is
+
+- pick the name of the repo, the name should be the name for the project that you are working on. For example the name of this repo is
 **git-cheat-sheet**
 
-- You want initialize with a README.md file. The README.md is a file that you want other people to read before looking at your project
-For example, what you are reading right now is a README.md file. If you want to learn about mark down, which is how you can make things look cool, read here: https://help.github.com/articles/github-flavored-markdown/
+- You'll want to initialize with a README.md file. The README.md is a file that you want other people to read before looking at your project
+For example, what you are reading right now is a README.md file. If you want to learn about Markdown, which is how you can make things look cool, read here: https://help.github.com/articles/github-flavored-markdown/
 
 - And that's all! You have just created your remote repository. If you have an existing projects, you can import that project to this repo. If this is just the beginning, you can clone the remote repo to your local machine. 
 
 ## Git Clone
 
-- If you look on the right side of home page in a git repo, you will see this _git clone_ clink. Copy that link to your clipboard, either with just `cmd + c` or just clicking on the clipboard icon. Then go to the directory where you want to add the project and run 
+- If you look at the right side of a git repo's main page, you will see its _git clone_ URL. Copy that link to your clipboard, either with just `cmd + c` or by clicking on the clipboard icon. Then go to the local directory you want to clone the project to and run:
 
 ```
 $ git clone <clone_link>
