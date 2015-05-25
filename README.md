@@ -46,13 +46,12 @@ To keep your fork up to date
 
 ## Starting
 
-Starting is super easy... that is if you have a mac! If you don't have a mac and are running Windows, then there is a very simple solution... Buy a mac!! (the new ones are like super thin)
+Starting is the easy part.  Make sure you have git installed by opening up your terminal and running,
+```
+git --version
+```
+If you're running osx or some form of linux, chances are you already have git installed.  If you're running windows, and/or just don't have git installed (it'll be obvious since entering the above command will spit out an unknown command error), head over to the [official site](https://git-scm.com/downloads) to download and install git for your computer
 
-Open up your terminal to see exactly what version of git you have.
-```
-$ git --version
-git version 1.9.5 (Apple Git-50.3)
-```
 Now that you are sure you have a working version of git, it's time to create your working repository.
 
 Go inside your project directory (in the terminal) and run `git init`, this will let git know you want it to start keeping track of your changes for this folder.
