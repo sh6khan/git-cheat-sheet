@@ -133,7 +133,7 @@ There is one more thing that I should point out here. If the git log is large en
 
 But if you want cleaner more readable information, definitely try the following:
 ```
-$ git log oneline -5
+$ git log --oneline -5
 
 70693a1 Merge branch 'master' into random-branch
 9f4b039 conflict feature 2 on master
