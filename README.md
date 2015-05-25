@@ -39,6 +39,7 @@ To keep your fork up to date
 1. [Undo](#undo)
 1. [Branches](#branches)
 1. [Merging](#merging)
+1. [Example Workflow](#example-workflow)
 1. [Remotes](#remotes)
 1. [GitHub](#github)
 1. [Creating a Git Repo](#creating-a-git-repo)
@@ -354,6 +355,61 @@ If you had a conflict in the middle of a rebase, after fixing your conflicts run
 $ git add .
 $ git rebase --continue
 ```
+**[⬆ back to top](#overview)**
+
+## Example Workflow
+
+Now that you've seen all the bits and pieces, it would probably be helpful to see what the workflow with all these different commands looks like.
+
+This is the typical situation.  You're working on a project which is being tracked by git.  You want to begin adding a feature or fixing a bug.
+Begin by checking out a new branch with a descriptive branch name.  For demo purposes, the branch name will be `fix-readme-grammar`.
+```
+$ git checkout -b fix-readme-grammar
+```
+
+after making your changes, review your changes by running
+```
+$ git status
+```
+and usually
+```
+$ git diff
+```
+This will allow you to do a last minute review of your changes before deciding to make a new commit
+
+Once you're satisifed with what you've changed, add the files to the staging area
+```
+$ git add -A
+```
+
+Now, create your new commit
+```
+$ git commit -m "Restructured commit section.  Fix spelling mistakes for introductory paragraph."
+```
+Of course, you can always combine these by entering `git add -A && git commit -m "commit message"`
+
+Now you'll want to push your changes to the remote repo.  Remember though, since it's a new branch, you'll have to tell the remote repo that you want it to start tracking this new branch as well.  You can set up remote tracking and push at the same time by entering
+```
+$ git push -u origin fix-readme-grammar
+```
+After your first push, you can simply use `git push` for future commits on this branch.
+
+Once you've made enough changes, commits, and pushes that you're happy enough to merge it back into master, you'll want to head over to github (or whatever service you're using for your remote repo) to submit a pull request.  Once you've got the OK to merge it back in to master.
+```
+$ git checkout master
+$ git pull
+$ git merge fix-readme-grammar --no-ff --no-edit
+```
+
+Lastly, you'll want to delete the branches, first on your remote...
+```
+$ git push origin --delete fix-readme-grammar
+```
+
+...and then on your local machine
+$ git branch -d fix-readme-grammar
+```
+
 **[⬆ back to top](#overview)**
 
 ## Remotes
