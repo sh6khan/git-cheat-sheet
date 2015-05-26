@@ -219,7 +219,7 @@ This will allow you to *add* the changes to that most recent commit, as if it wa
 $ git commit --amend --no-edit
 ```
 
-It's important to note that if you've already pushed the commit before fixing your mistake, you won't be able to push the correct commit. This is because the remote repo and the local repo have conflicting versions of the same commit.  If you've been working on a branch that *only* you have been working on, you can force the remote repository to accept the corrected commit.  **you should only do this if you know no one else has pulled *non* corrected commit already**.  This will almost always be the case if you have been working on your own branch!
+It's important to note that if you've already pushed the commit before fixing your mistake, you won't be able to push the corrected commit. This is because the remote repo and the local repo have conflicting versions of the same commit.  If you've been working on a branch that *only* you have been working on, you can force the remote repository to accept the corrected commit.  **you should only do this if you know no one else has pulled the *non* corrected commit already**.  This will almost always be the case if you have been working on your own branch!
 ```
 $ git push -f
 ```
