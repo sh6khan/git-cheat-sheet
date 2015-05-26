@@ -77,29 +77,34 @@ Git breaks things up into three 'trees' which are all maintained by git.
 
 Moving from one tree to another is simple.
 ```
-#You must first move files that you have changed to the staging area.
-#To specify a single file,
+# You must first move files that you have changed to the staging area.
+# To specify a single file,
 $ git add <filename>
 
-#Alternatively, you can add all files that you have updated, added, or remove by entering,
+# Alternatively, you can add all files that you have updated, added, or remove by entering,
 $ git add -A
 
-#This will put all the changes you've staged into a new commit. HEAD will now point to this newest commit.
+# This will put all the changes you've staged into a new commit. HEAD will now point to this newest commit.
 $ git commit -m "commit message"
 
-#you can do this all in online with
+# You can do this all in online with.
 $ git commit -am "commit message"
 ```
-There is a caveat to using the last method there, it will not pick up on brand new files or files that have been deleted since the last commit.
+
+There is a caveat to using `git commit -am "commit message"`, it will not pick up on brand new files or files that have been deleted since the last commit.
 We personally recommend going through this workflow:
-`git add -A` - add all changes to the repo.
-`git commit -m "commit message"` - creates a new commit with all the changes you made.
+
+```
+git add -A # add all changes to the repo.
+git commit -m "commit message"` # creates a new commit with all the changes you made.
+```
 
 **[⬆ back to top](#overview)**
 
 ## Git logs
 
-The `git log` command is a great way to see all the previous commits made to the repository (whether by you or someone else), however the default formatting can be a bit confusing and even overwhelming at first look.
+The `git log` command is a way to see all previous commits made to the repository (whether by you or someone else)
+
 ```
 $ git log
 
@@ -122,6 +127,7 @@ Date:   Fri Apr 3 03:12:54 2015 -0400
 
     Merge branch 'master' into random-branch
 ```
+
 The large assortment of numbers and letters right next to the word commit is the sha_key, it's a specific hexadecimal value that references that particular commit.
 
 - The author line is simple, it's the user that made the commit
