@@ -210,6 +210,20 @@ $ git reflog
 
 $ git reset --hard <sha_key>
 ```
+
+##### Correcting small mistakes
+1. You've already made your commit and you've noticed something small that *should* have been in that commit (usually grammar, stale debug statements or comments).
+
+This will allow you to *add* the changes to that most recent commit, as if it was there all along!
+```
+$ git commit --amend --no-edit
+```
+
+It's important to note that if you've already pushed the commit before fixing your mistake, you won't be able to push the correct commit. This is because the remote repo and the local repo have conflicting versions of the same commit.  If you've been working on a branch that *only* you have been working on, you can force the remote repository to accept the corrected commit.  **you should only do this if you know no one else has pulled *non* corrected commit already**.  This will almost always be the case if you have been working on your own branch!
+```
+$ git push -f
+```
+
 **[⬆ back to top](#overview)**
 
 ## Branches
