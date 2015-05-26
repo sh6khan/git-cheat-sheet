@@ -407,6 +407,7 @@ $ git push origin --delete fix-readme-grammar
 ```
 
 ...and then on your local machine
+```
 $ git branch -d fix-readme-grammar
 ```
 
