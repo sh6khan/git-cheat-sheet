@@ -350,7 +350,7 @@ Examples:
 - Set `git stat` to `git status -sb`
 
   ```bash
-  $ git config --global alias.stat status -sb
+  $ git config --global alias.stat 'status -sb'
   ```
 
 - Combine functions with `&&`
