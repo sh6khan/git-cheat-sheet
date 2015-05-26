@@ -40,6 +40,12 @@ To keep your fork up to date
 1. [Branches](#branches)
 1. [Merging](#merging)
 1. [Example Workflow](#example-workflow)
+1. [Tricks](#tricks)
+  - [Stripspace](#stripspace)
+  - [Previous Branch](#previous-branch)
+  - [Clean Status](#clean-status)
+  - [Auto Correct](#auto-correct)
+  - [Alias](#alias)
 1. [Remotes](#remotes)
 1. [GitHub](#github)
 1. [Creating a Git Repo](#creating-a-git-repo)
@@ -283,6 +289,76 @@ $ git rebase master
 _Why Rebase?_, It's a great to make a clean looking tree, it appears as if you never created a branch to begin with. Remember a rebase is simply shifting the commit that your branch branched off of, to be the HEAD of master.
 
 **[⬆ back to top](#overview)**
+
+## Tricks
+
+### Stripspace
+
+- Removes trailing whitespace
+- Collapse New lines
+- Adds new lines to end of file
+
+  - Simply pass in the file that you want to strip
+
+  ```bash
+  $ git stripspace < text_file.txt
+  ```
+
+### Previous Branch
+
+- Quickly go back to your last branch
+
+  ```bash
+  $ git checkout - 
+  ```
+
+### Clean Status
+
+- Add `-sb` to get a cleaner `git status`
+
+  ```bash
+  $ git status -sb
+  ```
+
+### Auto Correct
+
+- Set auto correct to true for Git commands
+
+  ```bash
+  $ git config --global help.autocorrect 1
+  ```
+
+- Results in:
+
+  ```bash
+  $ git comit -m "commit message"
+  # WARNING: You called a Git command named 'comit', which does not exist.
+  # Continuing under the assumption that you meant 'commit'
+  # in 0.1 seconds automatically...
+  ```
+
+### Alias
+
+- Add shortcuts to reduce your typing
+
+  ```bash
+  $ git config --global alias.alias_command git_command
+  ```
+
+Examples:
+
+- Set `git stat` to `git status -sb`
+
+  ```bash
+  $ git config --global alias.stat status -sb
+  ```
+
+- Combine functions with `&&`
+
+  ```bash
+  $ git config --global alias.ac '!git add -A  && git commit'
+  ```
+  - The commit messages needs to be entered in from the editor if using the above alias 
 
 ## Merge Conflicts
 
