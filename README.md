@@ -377,7 +377,7 @@ $ git diff
 ```
 This will allow you to do a last minute review of your changes before deciding to make a new commit
 
-Once you're satisifed with what you've changed, add the files to the staging area
+Once you're satisfied, add the files to the staging area
 ```
 $ git add -A
 ```
@@ -388,13 +388,13 @@ $ git commit -m "Restructured commit section.  Fix spelling mistakes for introdu
 ```
 Of course, you can always combine these by entering `git add -A && git commit -m "commit message"`
 
-Now you'll want to push your changes to the remote repo.  Remember though, since it's a new branch, you'll have to tell the remote repo that you want it to start tracking this new branch as well.  You can set up remote tracking and push at the same time by entering
+Now you'll want to push your changes to the remote repo.  Since it's a new branch, you'll have to tell the remote repo that you want it to start tracking this new branch as well.  You can set up remote tracking and push at the same time by entering
 ```
 $ git push -u origin fix-readme-grammar
 ```
 After your first push, you can simply use `git push` for future commits on this branch.
 
-Once you've made enough changes, commits, and pushes that you're happy enough to merge it back into master, you'll want to head over to github (or whatever service you're using for your remote repo) to submit a pull request.  Once you've got the OK to merge it back in to master.
+Once you've made enough changes, commits, and pushes that you're happy enough to merge it back into master, you'll want to head over to github (or whatever service you're using for your remote repo) to submit a pull request.  Once you've got the OK to merge it back in to master,
 ```
 $ git checkout master
 $ git pull
